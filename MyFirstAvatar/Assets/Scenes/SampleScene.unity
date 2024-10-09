@@ -321,11 +321,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7540dc49fa5cd9c4fa27558029db0e7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fox1: {fileID: 1199028741}
-  fox2: {fileID: 1001471644}
+  fbxObject1: {fileID: 1199028741}
+  fbxObject2: {fileID: 1001471644}
   attackDistance: 0.25
-  trackedImage1: {fileID: 0}
-  trackedImage2: {fileID: 0}
 --- !u!4 &830245467
 Transform:
   m_ObjectHideFlags: 0
@@ -542,10 +540,10 @@ Camera:
     height: 1
   near clip plane: 0.05
   far clip plane: 2000
-  field of view: 60
+  field of view: 26.991467
   orthographic: 0
   orthographic size: 5
-  m_Depth: 1
+  m_Depth: 2
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -569,7 +567,7 @@ Transform:
   m_GameObject: {fileID: 1165735401}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.013, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

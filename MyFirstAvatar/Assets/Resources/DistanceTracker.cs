@@ -1,45 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR.ARFoundation;
 
-public class DistanceTracker : MonoBehaviour
+public class AttackModeTrigger : MonoBehaviour
 {
-    public GameObject fox1;
-    public GameObject fox2;
+    public GameObject fbxObject1;
+    public GameObject fbxObject2;
     public float attackDistance = 0.25f;
-    public ARTrackedImage trackedImage1; 
-    public ARTrackedImage trackedImage2;
-    
     private Animator animator1;
     private Animator animator2;
-    // Start is called before the first frame update
-    void Start()
-    {
-        animator1 = fox1.GetComponent<Animator>();
-        animator2 = fox2.GetComponent<Animator>();
+
+    void Start(){
+        animator1 = fbxObject1.GetComponent<Animator>();
+        animator2 = fbxObject2.GetComponent<Animator>();
+
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (trackedImage1.trackingState == UnityEngine.XR.ARSubsystems.TrackingState.Tracking &&
-            trackedImage2.trackingState == UnityEngine.XR.ARSubsystems.TrackingState.Tracking)
+        if (Vector3.Distance(fbxObject1.transform.position, fbxObject2.transform.position) < attackDistance)
         {
-            float distance = Vector3.Distance(fox1.transform.position, fox2.transform.position);
-
-            if (distance < attackDistance)
-            {
-                EnterAttackState();
-            }
+            EnterAttackMode();
         }
     }
 
-    private void EnterAttackState()
+    void EnterAttackMode()
     {
-        // Play the attack animation
+        // Implement your attack mode logic here
+        Debug.Log("Attack mode activated!");
         animator1.SetTrigger("AttackTrigger");
         animator2.SetTrigger("AttackTrigger");
-        Debug.Log("Objects are in attack range and attacking!");
     }
 }
